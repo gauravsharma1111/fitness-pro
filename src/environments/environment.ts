@@ -4,6 +4,16 @@
 
 export const environment = {
   production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyDjt4VpfCwa3y3kkVxfCuoJ-oL281dZeBM',
+    authDomain: 'fitness-pro-d703e.firebaseapp.com',
+    databaseURL: 'https://fitness-pro-d703e-default-rtdb.firebaseio.com',
+    projectId: 'fitness-pro-d703e',
+    storageBucket: 'fitness-pro-d703e.appspot.com',
+    messagingSenderId: '482377626168',
+    appId: '1:482377626168:web:4901bfa1bef830db57eccd',
+    measurementId: 'G-NSELGMT97V',
+  },
 };
 
 /*

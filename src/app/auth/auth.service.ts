@@ -26,8 +26,6 @@ export class AuthService {
     this.authSuccessfully();
   }
   logout() {
-    console.log('logging out');
-
     this.user = null;
     this.authChange.next(false);
     this.router.navigate(['/login']);

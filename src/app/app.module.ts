@@ -18,9 +18,10 @@ import {
   MatFormFieldDefaultOptions,
 } from '@angular/material/form-field';
 import { HeaderComponent } from './header/header.component';
-
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { StopTrainingComponent } from './training/current-training/stop-training/stop-training.component';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
   hideRequiredMarker: true,
 };
@@ -52,6 +53,7 @@ const matFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: matFormFieldDefaultOptions,
     },
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
   ],
   bootstrap: [AppComponent],
 })
