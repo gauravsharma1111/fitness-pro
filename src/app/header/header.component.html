@@ -1,0 +1,30 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon d-sm-none" (click)="this.sidenav.toggle();"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span [routerLink]="['']">Fitness pro</span>
+    <span class="example-spacer"></span>
+    <button *ngIf="!isAuth" mat-button class="d-none d-sm-block" [routerLink]="['/signup']"
+      routerLinkActive="router-link-active">Signup</button>
+    <button *ngIf="!isAuth" mat-button class="d-none d-sm-block" [routerLink]="['/login']"
+      routerLinkActive="router-link-active">Login</button>
+    <button *ngIf="isAuth" mat-button class="d-none d-sm-block" [routerLink]="['/training']"
+      routerLinkActive="router-link-active">Training</button>
+    <button *ngIf="isAuth" mat-button class="d-none d-sm-block" (click)="onLogout()">Logout</button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button *ngIf="!isAuth" mat-menu-item [routerLink]="['/signup']" routerLinkActive="router-link-active">
+        <mat-icon>person_add</mat-icon> Signup</button>
+      <button *ngIf="!isAuth" mat-menu-item [routerLink]="['/login']"
+        routerLinkActive="router-link-active"><mat-icon>login</mat-icon>Login</button>
+      <button *ngIf="isAuth" mat-menu-item [routerLink]="['/training']"
+        routerLinkActive="router-link-active"><mat-icon>fitness_center</mat-icon> Training</button>
+      <button *ngIf="isAuth" mat-menu-item (click)="onLogout()"><mat-icon>logout</mat-icon>
+        Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+</p>

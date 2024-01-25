@@ -1,0 +1,6 @@
+<section class="d-flex justify-content-center align-items-center mt-4 flex-column">
+  <mat-spinner mode="determinate" [value]="progress" class="mb-3"></mat-spinner>
+  <h1>{{progress}}%</h1>
+  <p>Keep on going, you can do it!</p>
+  <button mat-raised-button color="warn" (click)="onStop()">Stop</button>
+</section>

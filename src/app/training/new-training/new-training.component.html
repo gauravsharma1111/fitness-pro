@@ -1,0 +1,22 @@
+<div class="row w-100 d-flex justify-content-center mt-3">
+  <div class="col-md-5 p-0">
+    <form #exerciseForm="ngForm" (ngSubmit)="onStartTraining(exerciseForm)">
+      <mat-card class="w-100 text-center text-md-start">
+        <mat-card-title>Time to start a workout!</mat-card-title>
+        <mat-card-content>
+          <mat-form-field>
+            <mat-label>Select type of training</mat-label>
+            <mat-select ngModel name="exercise" disableOptionCentering="true" required>
+              <mat-option #exerciceSelected *ngFor="let exercise of exercises"
+                [value]="exercise.id">{{exercise.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button type="submit" [disabled]="exerciseForm.invalid">Start</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+
+  </div>
+</div>

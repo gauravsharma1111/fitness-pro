@@ -1,0 +1,27 @@
+<section class="signup-form">
+  <form #form="ngForm" (submit)="onSubmit()" class="d-flex flex-column align-items-center gap-3">
+    <mat-form-field>
+      <input type="email" matInput placeholder="Your Email" ngModel name="email" email required>
+      <mat-error *ngIf="form.controls['email']?.errors?.['email']">Please Enter Valid Email</mat-error>
+      <mat-error *ngIf="form.controls['email']?.errors?.['required']">Please Enter Email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput #createPassword type="password" placeholder="Create password" ngModel name="password" required
+        minlength="6">
+      <mat-icon matSuffix (click)="toggleVisibility(createPassword)">{{isPasswordVisible}}</mat-icon>
+      <mat-hint>Password should less than 6 characters</mat-hint>
+      <mat-hint align="end">{{form.value.password?.length}}/6</mat-hint>
+      <mat-error *ngIf="form.controls['password']?.errors?.['minlength']">Has to be minimum 6 characters</mat-error>
+      <mat-error *ngIf="form.controls['password']?.errors?.['required']">Please Enter password</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>date of birth</mat-label>
+      <input matInput [matDatepicker]="picker" [max]="maxDate" ngModel name="birthdate" required>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-checkbox ngModel name="agree" required color="primary">Agree terms & conditions</mat-checkbox>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Signup</button>
+  </form>
+</section>

@@ -1,0 +1,11 @@
+<section class="signup-form">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="d-flex flex-column align-items-center gap-3">
+    <mat-form-field>
+      <input type="email" matInput placeholder="Your Email" formControlName="email" email required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Your password" formControlName="password" required>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" [disabled]="signupForm.invalid">Login</button>
+  </form>
+</section>
